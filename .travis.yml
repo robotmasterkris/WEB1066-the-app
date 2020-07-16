@@ -3,6 +3,9 @@ jdk:
   - openjdk8
   - openjdk9
 
+services:
+  - docker
+
 env:
   - COVERAGE=0.057 BUILD_TARGET=./monolithic/ui
   - COVERAGE=0.148 BUILD_TARGET=./monolithic/service/cart
@@ -20,3 +23,10 @@ script:
 
 after_success:
   - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+
+deploy:
+  provider: script
+  script: bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"${DOCKER_USERNAME}\"
+    --password-stdin ;"
+  on:
+    all_branches: true
