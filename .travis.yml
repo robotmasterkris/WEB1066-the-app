@@ -6,6 +6,7 @@ services:
   - docker
 
 env:
+  matrix:
   - COVERAGE=0.057 BUILD_TARGET=./monolithic/ui
   - COVERAGE=0.148 BUILD_TARGET=./monolithic/service/cart
   - COVERAGE=0.0 BUILD_TARGET=./monolithic/service/user
@@ -13,6 +14,10 @@ env:
   - COVERAGE=0.0 BUILD_TARGET=./monolithic/repository/cart
   - COVERAGE=0.124 BUILD_TARGET=./monolithic/repository/product
   - COVERAGE=0.318 BUILD_TARGET=./monolithic/repository/user
+  global:
+  - DOCKER_LOGIN=robotmasterkris
+  - secure: j9dq/uJzLDRCU5Ou/lN6GMdia/JE5KYmfGQ++bwPVRgzfgWgzQeeZWtAa+QLX5yjq+ghB/qu0daPq9+R/WPiyYWkGVXMDnocj5zFhgGbCClMXwiVO0Wsu02k0wgE2vtVcAmT59TFxifvLiiJ8hMd7gJn9lBDH4xf/786bozAbA8ye0/Qn2qeds9oRn75b099BVqfJOn5I1526ETa+V6PXeVWNwha3vMwzVaKMLfRa2rY4W4nZWnj5OsPWipxLcPczHxXiwhdm/VI25pY+ZCqrG4odo5NcJPB6Ay8VZmU5jKbvBuR5DaV+oDUZr72QqlDE6wrblxELcE475QAFgNyETsOqPMy65uiV8cG0Poi8Kx55+R8QVABSkyzngYDlqSVso6SPFEB6dqBbdMrKr4/YJteV0W12bWMH0LHtl+ySnq3Nm+NAzKydJjLkoWpf7DvZFVZPn5FcA1WQz4d8h3IlnvB2JV4Efnjs3h0w69puXW20zq2BEbf6WnL5tGZsWtMYqOqRj4J2pxpfdSIsGfIk4hvzv12PuzcbjAOP3YzBXVEtU+JWFlFRV+CSb3LbDRuws9wPn/rhW0WZaN6chDOjqNOe60Wbw8KKNu1U4LLZj4solm8N0HWjwCmKPljOLtRgkYEX2/JIOQhQzVUB+fR1SNNK9SWwcySd3S128Xy66Q=
+
 
 install:
   - ./gradlew clean jar
@@ -25,7 +30,7 @@ after_success:
 
 deploy:
   provider: script
-  script: bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"${DOCKER_USERNAME}\"
+  script: bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"${DOCKER_LOGIN}\"
     --password-stdin ;"
   on:
     all_branches: true
