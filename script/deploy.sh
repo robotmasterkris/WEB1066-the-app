@@ -2,6 +2,6 @@
 set -e
 
 echo "Starting deploy"
-echo "${DOCKER_PWD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
-docker tag zutherb/monolithic-shop:latest $DOCKER_USERNAME/monolithic-shop:latest
-docker push $DOCKER_USERNAME/monolithic-shop:latest
+echo "${DOCKER_PWD}" | docker login --username "${DOCKER_LOGIN}" --password-stdin
+docker tag zutherb/monolithic-shop:latest $DOCKER_LOGIN/monolithic-shop:latest
+docker push $DOCKER_LOGIN/monolithic-shop:latest

@@ -14,7 +14,7 @@ env:
   - COVERAGE=0.124 BUILD_TARGET=./monolithic/repository/product
   - COVERAGE=0.318 BUILD_TARGET=./monolithic/repository/user
   global:
-  - DOCKER_USERNAME=robotmasterkris
+  - DOCKER_LOGIN=robotmasterkris
   - secure: vn6fA4EebkFKMxCypkA1Ee4uGSYBWc7hI/6E4/oqBNP3ZNiMqpLMqkB5KXJzuMuYbJ1hdEMvPMtmthActu7E1PWGis54tdf7DMtIYLY2XX6v8RxkDutrN25PniPLT0MrcOwNjuq0C5EROM+6S8vw0uJWUNADKAc81iViOB8O+4NJcbpiyQSztsqcZZyTJuBgIe+26zgReH+6popKfdN5H4ZwVgpDyreyNK7cw2jM2I2axN4OVEbGoqAt/IvrVixUm0fou8GUUR+lz1SiZgtgWK8ou5yxykD1DdIbw0P7NW5stMcQR+cjpu2xkxfb3R8s3MM4BorEk005zeeR5JDq/NBs0FLGhCG6LSRZU3QilgmEQZpaJAeqVvD8kB1sUEH5X7V6LAw6jqhEYq6GJnqvUbmIh1xcKwyEBxSNjorxQNlCOjv3fmZiyTapOm/FdAYmG/mYIRdA9Psm5K0rA31TuKmWqCOyGqomlpJvm8sZRj+VgIsxpRW3vBwiZ2neoJK9hoZ3ceVwSAR49VVDm9sKx+MrhVKZ9ohGeXNrukeZqb7OkeHU4r78a/oP1umYVcCCLXfS4ExjI9WInJL9uCSG1mIOs2beflS951PVLWJOiPNcHLNbBk1rF6obBP1rs+6Bp7DFJHDp0Fp5Udrp9/zvj3mPz7NRU9tfiy22ybIQfqw=
 install:
 - "./gradlew clean jar"
